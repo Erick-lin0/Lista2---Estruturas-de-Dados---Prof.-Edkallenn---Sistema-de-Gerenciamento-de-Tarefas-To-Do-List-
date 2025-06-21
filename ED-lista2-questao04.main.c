@@ -1,9 +1,9 @@
 
 /*
-** FunÁ„o : Sistema de Gerenciamento de Tarefas (To-Do List)
+** Fun√ß√£o : Sistema de Gerenciamento de Tarefas (To-Do List)
 ** Autor : Erick e Daysila
 ** Data : 16/06/2025
-** ObservaÁıes: Interface principal do sistema de tarefas
+** Observa√ß√µes: Arquivo de teste principal do sistema de tarefas
 */
 
 #include "todo.h"
@@ -14,21 +14,21 @@ static int proximoId = 1;
 
 void mostrarMenu() {
     printf("\n=== SISTEMA DE GERENCIAMENTO DE TAREFAS ===\n");
-    printf("1.  Adicionar tarefa (inÌcio da lista)\n");
+    printf("1.  Adicionar tarefa (in√≠cio da lista)\n");
     printf("2.  Adicionar tarefa (final da lista)\n");
     printf("3.  Agendar tarefa para data futura\n");
-    printf("4.  Marcar tarefa como concluÌda\n");
+    printf("4.  Marcar tarefa como conclu√≠da\n");
     printf("5.  Listar TO-DO List\n");
-    printf("6.  Listar tarefas concluÌdas\n");
+    printf("6.  Listar tarefas conclu√≠das\n");
     printf("7.  Listar tarefas agendadas\n");
     printf("8.  Processar tarefas vencidas\n");
-    printf("9.  Desfazer ˙ltima conclus„o\n");
+    printf("9.  Desfazer √∫ltima conclus√£o\n");
     printf("10. Buscar tarefa por ID (recursivo)\n");
     printf("11. Listar tarefas (recursivo)\n");
-    printf("12. OperaÁıes com Deque\n");
-    printf("13. Mostrar estatÌsticas\n");
+    printf("12. Opera√ß√µes com Deque\n");
+    printf("13. Mostrar estat√≠sticas\n");
     printf("0.  Sair\n");
-    printf("Escolha uma opÁ„o: ");
+    printf("Escolha uma op√ß√£o: ");
 }
 
 void menuDeque(DequeTarefas *deque) {
@@ -38,11 +38,11 @@ void menuDeque(DequeTarefas *deque) {
     Tarefa tarefa;
     
     do {
-        printf("\n--- OPERA«’ES COM DEQUE ---\n");
+        printf("\n--- OPERA√á√ïES COM DEQUE ---\n");
         printf("1. Adicionar na frente\n");
-        printf("2. Adicionar atr·s\n");
+        printf("2. Adicionar atr√°s\n");
         printf("3. Remover da frente\n");
-        printf("4. Remover de tr·s\n");
+        printf("4. Remover de tr√°s\n");
         printf("5. Listar deque\n");
         printf("0. Voltar\n");
         printf("Escolha: ");
@@ -51,11 +51,11 @@ void menuDeque(DequeTarefas *deque) {
         
         switch(opcao) {
             case 1:
-                printf("DescriÁ„o: ");
+                printf("Descri√ß√£o: ");
                 fgets(descricao, MAX_DESCRICAO, stdin);
                 descricao[strcspn(descricao, "\n")] = 0;
                 
-                printf("Prioridade (1-Baixa, 2-MÈdia, 3-Alta): ");
+                printf("Prioridade (1-Baixa, 2-M√©dia, 3-Alta): ");
                 scanf("%d", &prioridade);
                 getchar();
                 
@@ -64,17 +64,17 @@ void menuDeque(DequeTarefas *deque) {
                 printf("? Tarefa adicionada na frente do deque!\n");
                 break;
             case 2:
-                printf("DescriÁ„o: ");
+                printf("Descri√ß√£o: ");
                 fgets(descricao, MAX_DESCRICAO, stdin);
                 descricao[strcspn(descricao, "\n")] = 0;
                 
-                printf("Prioridade (1-Baixa, 2-MÈdia, 3-Alta): ");
+                printf("Prioridade (1-Baixa, 2-M√©dia, 3-Alta): ");
                 scanf("%d", &prioridade);
                 getchar();
                 
                 tarefa = criarTarefa(proximoId++, descricao, prioridade, 0);
                 adicionarTras(deque, tarefa);
-                printf("? Tarefa adicionada atr·s do deque!\n");
+                printf("? Tarefa adicionada atr√°s do deque!\n");
                 break;
             case 3:
                 if (removerFrente(deque, &tarefa)) {
@@ -85,7 +85,7 @@ void menuDeque(DequeTarefas *deque) {
                 break;
             case 4:
                 if (removerTras(deque, &tarefa)) {
-                    printf("? Tarefa removida de tr·s: %s\n", tarefa.descricao);
+                    printf("? Tarefa removida de tr√°s: %s\n", tarefa.descricao);
                 } else {
                     printf("Deque vazio!\n");
                 }
@@ -118,12 +118,12 @@ int main() {
         
         switch(opcao) {
             case 1:
-                printf("\n--- ADICIONAR TAREFA (INÕCIO) ---\n");
-                printf("DescriÁ„o: ");
+                printf("\n--- ADICIONAR TAREFA (IN√çCIO) ---\n");
+                printf("Descri√ß√£o: ");
                 fgets(descricao, MAX_DESCRICAO, stdin);
                 descricao[strcspn(descricao, "\n")] = 0;
                 
-                printf("Prioridade (1-Baixa, 2-MÈdia, 3-Alta): ");
+                printf("Prioridade (1-Baixa, 2-M√©dia, 3-Alta): ");
                 scanf("%d", &prioridade);
                 
                 printf("Data de vencimento (DDMMYYYY): ");
@@ -131,7 +131,7 @@ int main() {
                 getchar();
                 
                 if (!validarData(dataVencimento)) {
-                    printf("Data inv·lida! Use formato DDMMYYYY.\n");
+                    printf("Data inv√°lida! Use formato DDMMYYYY.\n");
                     break;
                 }
                 
@@ -140,11 +140,11 @@ int main() {
                 break;
             case 2:
                 printf("\n--- ADICIONAR TAREFA (FINAL) ---\n");
-                printf("DescriÁ„o: ");
+                printf("Descri√ß√£o: ");
                 fgets(descricao, MAX_DESCRICAO, stdin);
                 descricao[strcspn(descricao, "\n")] = 0;
                 
-                printf("Prioridade (1-Baixa, 2-MÈdia, 3-Alta): ");
+                printf("Prioridade (1-Baixa, 2-M√©dia, 3-Alta): ");
                 scanf("%d", &prioridade);
                 
                 printf("Data de vencimento (DDMMYYYY): ");
@@ -152,7 +152,7 @@ int main() {
                 getchar();
                 
                 if (!validarData(dataVencimento)) {
-                    printf("Data inv·lida! Use formato DDMMYYYY.\n");
+                    printf("Data inv√°lida! Use formato DDMMYYYY.\n");
                     break;
                 }
                 
@@ -161,11 +161,11 @@ int main() {
                 break;
             case 3:
                 printf("\n--- AGENDAR TAREFA ---\n");
-                printf("DescriÁ„o: ");
+                printf("Descri√ß√£o: ");
                 fgets(descricao, MAX_DESCRICAO, stdin);
                 descricao[strcspn(descricao, "\n")] = 0;
                 
-                printf("Prioridade (1-Baixa, 2-MÈdia, 3-Alta): ");
+                printf("Prioridade (1-Baixa, 2-M√©dia, 3-Alta): ");
                 scanf("%d", &prioridade);
                 
                 printf("Data de vencimento (DDMMYYYY): ");
@@ -173,7 +173,7 @@ int main() {
                 getchar();
                 
                 if (!validarData(dataVencimento)) {
-                    printf("Data inv·lida! Use formato DDMMYYYY.\n");
+                    printf("Data inv√°lida! Use formato DDMMYYYY.\n");
                     break;
                 }
                 
@@ -181,7 +181,7 @@ int main() {
                 enfileirarTarefa(fila, tarefa);
                 break;
             case 4:
-                printf("\n--- MARCAR COMO CONCLUÕDA ---\n");
+                printf("\n--- MARCAR COMO CONCLU√çDA ---\n");
                 listarTarefas(lista);
                 printf("Digite o ID da tarefa a concluir: ");
                 scanf("%d", &id);
@@ -205,13 +205,13 @@ int main() {
                 getchar();
                 
                 if (!validarData(dataAtual)) {
-                    printf("Data inv·lida! Use formato DDMMYYYY.\n");
+                    printf("Data inv√°lida! Use formato DDMMYYYY.\n");
                     break;
                 }
                 processarTarefasVencidas(fila, lista, dataAtual);
                 break;
             case 9:
-                printf("\n--- DESFAZER CONCLUS√O ---\n");
+                printf("\n--- DESFAZER CONCLUS√ÉO ---\n");
                 if (desempilharTarefa(pilha, &tarefa)) {
                     adicionarTarefaInicio(lista, tarefa);
                     printf("? Tarefa '%s' retornada para TO-DO List!\n", tarefa.descricao);
@@ -227,15 +227,15 @@ int main() {
                 if (resultado != NULL) {
                     printf("? Tarefa encontrada:\n");
                     printf("ID: %d\n", resultado->tarefa.id);
-                    printf("DescriÁ„o: %s\n", resultado->tarefa.descricao);
+                    printf("Descri√ß√£o: %s\n", resultado->tarefa.descricao);
                     printf("Prioridade: %s\n", obterTextoPrioridade(resultado->tarefa.prioridade));
                 } else {
-                    printf("Tarefa com ID %d n„o encontrada.\n", id);
+                    printf("Tarefa com ID %d n√£o encontrada.\n", id);
                 }
                 break;
             case 11:
                 printf("\n--- LISTAGEM RECURSIVA ---\n");
-                printf("TO-DO List (usando recurs„o):\n");
+                printf("TO-DO List (usando recurs√£o):\n");
                 listarTarefasRecursivo(lista->inicio);
                 break;
             case 12:
@@ -248,7 +248,7 @@ int main() {
                 printf("Encerrando sistema...\n");
                 break;  
             default:
-                printf("OpÁ„o inv·lida!\n");
+                printf("Op√ß√£o inv√°lida!\n");
                 break;
         }
     } while(opcao != 0);
