@@ -1,9 +1,9 @@
 
 /*
-** Função : Sistema de Gerenciamento de Tarefas (To-Do List)
+** FunÃ§Ã£o : Sistema de Gerenciamento de Tarefas (To-Do List)
 ** Autor : Erick e Daysila
 ** Data : 16/06/2025
-** Observações: Interface do sistema de tarefas com diferentes estruturas de dados
+** ObservaÃ§Ãµes: Interface do sistema de tarefas com diferentes estruturas de dados
 */
 
 #ifndef TODO_H
@@ -30,7 +30,7 @@ typedef struct {
     int tamanho;
 } ListaTarefas;
 
-// FUNÇÕES
+// FUNÃ‡Ã•ES
 ListaTarefas* criarLista();
 void adicionarTarefaInicio(ListaTarefas *lista, Tarefa tarefa);
 void adicionarTarefaFim(ListaTarefas *lista, Tarefa tarefa);
