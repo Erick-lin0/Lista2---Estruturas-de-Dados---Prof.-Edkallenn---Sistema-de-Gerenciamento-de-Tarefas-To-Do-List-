@@ -1,9 +1,9 @@
 
 /*
-** Função : Sistema de Gerenciamento de Tarefas (To-Do List)
+** FunÃ§Ã£o : Sistema de Gerenciamento de Tarefas (To-Do List)
 ** Autor : Erick e Daysila
 ** Data : 16/06/2025
-** Observações: Implementação completa do sistema de tarefas
+** ObservaÃ§Ãµes: ImplementaÃ§Ã£o completa do sistema de tarefas
 */
 
 #include "todo.h"
@@ -38,7 +38,7 @@ void adicionarTarefaInicio(ListaTarefas *lista, Tarefa tarefa) {
     lista->inicio = novoNo;
     lista->tamanho++;
     
-    printf("? Tarefa adicionada no início da lista!\n");
+    printf("? Tarefa adicionada no inÃ­cio da lista!\n");
 }
 
 void adicionarTarefaFim(ListaTarefas *lista, Tarefa tarefa) {
@@ -80,7 +80,7 @@ int removerTarefaPorId(ListaTarefas *lista, int id, Tarefa *tarefaRemovida) {
     }
     
     if (atual == NULL) {
-        printf("Tarefa com ID %d não encontrada!\n", id);
+        printf("Tarefa com ID %d nÃ£o encontrada!\n", id);
         return 0;
     }
     
@@ -139,7 +139,7 @@ void liberarLista(ListaTarefas *lista) {
 PilhaConcluidas* criarPilha() {
     PilhaConcluidas *pilha = (PilhaConcluidas*)malloc(sizeof(PilhaConcluidas));
     if (pilha == NULL) {
-        printf("Erro: Não foi possível alocar memória para pilha.\n");
+        printf("Erro: NÃ£o foi possÃ­vel alocar memÃ³ria para pilha.\n");
         return NULL;
     }
     pilha->topo = NULL;
@@ -150,7 +150,7 @@ PilhaConcluidas* criarPilha() {
 void empilharTarefa(PilhaConcluidas *pilha, Tarefa tarefa) {
     NoPilha *novoNo = (NoPilha*)malloc(sizeof(NoPilha));
     if (novoNo == NULL) {
-        printf("Erro: Não foi possível alocar memória.\n");
+        printf("Erro: NÃ£o foi possÃ­vel alocar memÃ³ria.\n");
         return;
     }
     
@@ -159,12 +159,12 @@ void empilharTarefa(PilhaConcluidas *pilha, Tarefa tarefa) {
     pilha->topo = novoNo;
     pilha->tamanho++;
     
-    printf("? Tarefa marcada como concluída!\n");
+    printf("? Tarefa marcada como concluÃ­da!\n");
 }
 
 int desempilharTarefa(PilhaConcluidas *pilha, Tarefa *tarefa) {
     if (pilha->topo == NULL) {
-        printf("Nenhuma tarefa concluída para desfazer!\n");
+        printf("Nenhuma tarefa concluÃ­da para desfazer!\n");
         return 0;
     }
     
@@ -178,14 +178,14 @@ int desempilharTarefa(PilhaConcluidas *pilha, Tarefa *tarefa) {
 }
 
 void listarTarefasConcluidas(PilhaConcluidas *pilha) {
-    printf("\n=== TAREFAS CONCLUÍDAS ===\n");
+    printf("\n=== TAREFAS CONCLUÃDAS ===\n");
     if (pilha->topo == NULL) {
-        printf("Nenhuma tarefa concluída.\n");
+        printf("Nenhuma tarefa concluÃ­da.\n");
         return;
     }
     
-    printf("Total de tarefas concluídas: %d\n", pilha->tamanho);
-    printf("(Última concluída primeiro)\n");
+    printf("Total de tarefas concluÃ­das: %d\n", pilha->tamanho);
+    printf("(Ãšltima concluÃ­da primeiro)\n");
     printf("----------------------------------------\n");
     
     NoPilha *atual = pilha->topo;
@@ -219,7 +219,7 @@ void liberarPilha(PilhaConcluidas *pilha) {
 FilaAgendadas* criarFila() {
     FilaAgendadas *fila = (FilaAgendadas*)malloc(sizeof(FilaAgendadas));
     if (fila == NULL) {
-        printf("Erro: Não foi possível alocar memória para fila.\n");
+        printf("Erro: NÃ£o foi possÃ­vel alocar memÃ³ria para fila.\n");
         return NULL;
     }
     fila->inicio = NULL;
@@ -502,9 +502,9 @@ Tarefa criarTarefa(int id, char *descricao, int prioridade, int dataVencimento) 
 }
 
 void mostrarEstatisticas(ListaTarefas *lista, PilhaConcluidas *pilha, FilaAgendadas *fila) {
-    printf("\n=== ESTATÍSTICAS DO SISTEMA ===\n");
+    printf("\n=== ESTATÃSTICAS DO SISTEMA ===\n");
     printf("TO-DO List: %d tarefa(s)\n", lista->tamanho);
-    printf("Tarefas Concluídas: %d\n", pilha->tamanho);
+    printf("Tarefas ConcluÃ­das: %d\n", pilha->tamanho);
     printf("Tarefas Agendadas: %d\n", fila->tamanho);
     
 
@@ -518,7 +518,7 @@ void mostrarEstatisticas(ListaTarefas *lista, PilhaConcluidas *pilha, FilaAgenda
 char* obterTextoPrioridade(int prioridade) {
     switch (prioridade) {
         case 1: return "Baixa";
-        case 2: return "Média";
+        case 2: return "MÃ©dia";
         case 3: return "Alta";
         default: return "";
     }
@@ -528,7 +528,7 @@ void moverTarefaParaConcluida(ListaTarefas *lista, PilhaConcluidas *pilha, int i
     Tarefa tarefa;
     if (removerTarefaPorId(lista, id, &tarefa)) {
         empilharTarefa(pilha, tarefa);
-        printf("Tarefa '%s' concluída com sucesso!\n", tarefa.descricao);
+        printf("Tarefa '%s' concluÃ­da com sucesso!\n", tarefa.descricao);
     }
 }
 
